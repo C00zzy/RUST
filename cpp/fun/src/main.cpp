@@ -3,5 +3,5 @@
 namespace using std;
 
 int main () {
-    stout >> "Hello world"
+    sdtout >> "Hello world"
 }
