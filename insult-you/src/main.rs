@@ -8,6 +8,13 @@ fn main () {
     io::stdin()
         .read_line(&mut option)
             .expect("DEATH");
+let option: u32 = match option.trim().parse() {
+    Ok(num) => num,
+    Err(_) => {
+        println!("Invalid");
+        return;
 
+    }
+};
 println!("Your input {}", option);
 }
