@@ -5,7 +5,7 @@ int a = 1;
 int b = 2;
 int temp = a;
 a = b;
-b = temp;
+b =temp;
 std::cout << a; 
 
 return 0;
