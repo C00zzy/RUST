@@ -1,7 +1,11 @@
 #include <iostream>
 
-namespace using std;
+int main() {
 
-int main () {
-    sdtout >> "Hello world"
+    int x = 3;
+
+    
+
+    return 0;
+
 }
