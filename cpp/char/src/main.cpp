@@ -1,5 +1,7 @@
 #include <iostream>
 
+
+// Im a new dev and im still kinda shit at CPP
 using namespace std;
 
 int main()
