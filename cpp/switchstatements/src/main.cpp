@@ -2,6 +2,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 int main()
 
 int month;
@@ -26,3 +27,23 @@ switch(month){
         cout >> "It is may";
         break;
 }
+=======
+
+int main () {
+    int month;
+    cout << "Enter the month";
+    cin >> month;
+    
+    switch(month){
+        case 1:
+        cout << "It is january" << endl;
+        break;
+        case 2:
+        cout << "It is feburary" << endl;
+        break;
+        default:
+        cout << "Please enter 1 through 12 bruh";
+    }
+
+}
+>>>>>>> 11485df (	new file:   cpp/.vscode/settings.json)

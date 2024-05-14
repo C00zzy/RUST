@@ -1,7 +1,10 @@
 #include <iostream>
 
+<<<<<<< HEAD
 
 // Im a new dev and im still kinda shit at CPP
+=======
+>>>>>>> 11485df (	new file:   cpp/.vscode/settings.json)
 using namespace std;
 
 int main()
@@ -28,4 +31,8 @@ int main()
         default:
         cout << "Not valid" << endl;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 11485df (	new file:   cpp/.vscode/settings.json)
