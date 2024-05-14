@@ -1,4 +1,2 @@
 # RUST/CPP
-Im learning C++ and others.
-Let me know if you have any tips.
-Licensed under GPL.
+Learning CPP and Rust. Licensed under GPL-V3
