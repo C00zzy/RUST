@@ -4,7 +4,7 @@ using namespace std;
 
 int main ()
 {
-    int count = 100;
+    int count = 10000;
 
     do {
         cout << "Fuck you" << endl;
