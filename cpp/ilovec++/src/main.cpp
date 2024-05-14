@@ -19,7 +19,7 @@ int main (){
    }
 
    else {
-    cout << "ALso based";
+    cout << "Get outta here" << endl;
    }
 
    return 0;
