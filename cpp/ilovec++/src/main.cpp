@@ -19,7 +19,7 @@ int main (){
    }
 
    else {
-    cout << "Get outta here" << endl;
+    cout << "thats cool" << endl;
    }
 
    return 0;
