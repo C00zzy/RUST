@@ -3,7 +3,7 @@
 
 int main ()
 {
-     int input;
+    int input;
     printf("Enter your input\n");
     scanf ("%s", &input);
     printf("%d is crazy\n", input);
