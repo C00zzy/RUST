@@ -3,8 +3,8 @@
 
 int main ()
 {
-     char input[100];
+     int input;
     printf("Enter your input\n");
     scanf ("%s", &input);
-    printf("%sjjjjj is crazy\n", input);
+    printf("%d is crazy\n", input);
 }
