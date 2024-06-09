@@ -1,4 +1,10 @@
-def fuckyou():
+import random
+import os
+def numbers():
     while True:
-        print("Fuck you")
-fuckyou()
+        try:
+            print(random.randrange(3, 20))
+        except KeyboardInterrupt:
+            print("stopped")
+            break
+numbers()
