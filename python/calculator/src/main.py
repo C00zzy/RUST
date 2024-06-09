@@ -28,4 +28,5 @@ def logicforcal(): # Define a function for calculator logic
                 print("Not valid...") # If the operation is not one of the specified ones, print error message
         except ValueError:
             print("Not a valid number...") # If user inputs a value that cannot be converted to a number, print error message
+
 logicforcal()
