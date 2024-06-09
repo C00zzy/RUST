@@ -1,10 +1,12 @@
-print("starting")
-a = 2
-b = 3
-c = 4
-print(a, b, c)
+def variables():
+    print("starting")
+    a = 3
+    b = 5
+    c = 7
+    print(a, b, c)
+    return a, b, c
 
-def read():
+def read(a, b, c):
     if a > c:
         print("a is the biggest")
     else:
@@ -13,7 +15,9 @@ def read():
         print("b is the biggest")
     else:
         print("c is the biggest")
-        pass
-    print("stopping")
-read()
         
+    print("stopping")
+
+a, b, c = variables()
+read(a, b, c)
+
