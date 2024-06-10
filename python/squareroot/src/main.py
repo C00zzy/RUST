@@ -9,7 +9,8 @@ def logic(n):
     while abs(answer * answer - n) > 0.0001:
         # Refine the guess using Newton's method
         answer = (answer + n / answer) / 2.0
-        
+    if answer == 0:
+        print("Cannot find 0")
     # Return the final guess as the square root
     return answer
 
