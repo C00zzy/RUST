@@ -1,5 +1,4 @@
 import random
-import os
 def numbers():
     while True:
         try:

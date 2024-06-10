@@ -32,4 +32,4 @@ def logicforcal(): # Define a function for calculator logic
             print("Stopped...")
             break
 
-logicforcal()
+logicforcal() # start the motherfucker
