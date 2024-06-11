@@ -1,4 +1,5 @@
 import random
+import os
 def numbers():
     while True:
         try:
@@ -7,3 +8,4 @@ def numbers():
             print("stopped")
             break
 numbers()
+os.system('clear')
