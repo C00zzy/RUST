@@ -1,6 +1,4 @@
 if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    print(a+b)
-    print(a-b)
-    print(a*b)
+    n = int(input())
+    if n < 3:
+        print("3")
