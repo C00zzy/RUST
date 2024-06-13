@@ -1,5 +1,4 @@
-class Solution:
-    def sortArray(self, nums: list[int]) -> list[int]:
-        nums.sort()
-        nums.sort(reverse=True)
-        return nums
+hello = ['h' 'e' 'l' 'l' 'o']
+
+values = [ord(hello) for char in hello]
+print(values)
