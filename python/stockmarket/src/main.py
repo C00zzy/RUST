@@ -7,7 +7,7 @@ def screenclear():
         os.system('cls')
 
 
-def candleinput():
+def checkcandleinput():
     while True:
         candle = input("Green for 1, Red for 0: ")
         if candle in ["0", "1"]:
@@ -17,7 +17,7 @@ def candleinput():
 
 
 def check_candle():
-    candle = candleinput()
+    candle = checkcandleinput()
     if candle == "1":
         print("INVEST")
     elif candle == "0":
