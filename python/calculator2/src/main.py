@@ -31,6 +31,8 @@ def inputforcal():
             return num1, num2
         except ValueError:
             print("Invalid")
+
+
 def funcforcal(num1, num2):
     sum = num1 + num2
 
