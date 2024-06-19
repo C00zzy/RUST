@@ -1,0 +1,24 @@
+
+
+inputforcal func:
+    input("Enter two number):
+    Then store both as variable
+    after return to outside of func
+    exit
+
+addition func:
+    sum = number 1 + number 2
+    exit
+
+
+multiply func:
+    sum = number 1 * number 2
+    exit
+
+
+logicforcal func:
+    (inputforcal)
+    input("What operator:   )
+    if operator == "+":
+        then
+
