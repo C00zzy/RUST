@@ -19,7 +19,7 @@
 #           then
 #### PUSEDO CODE ####
 
-def inputforcal():
+def numbers():
     while True:
         try:
             num1, num2, = input("Enter two number seperated by a comma:  ").split(',')
