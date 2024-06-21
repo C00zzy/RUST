@@ -1,20 +1,20 @@
 import os
-def dogyears():
-    while True:
-        try:
-            # Prompt the user to input their age and convert it to an integer
-            num1 = int(input("What is your age: "))
-            # Calculate the equivalent age in dog years (1 human year = 7 dog years)
-            result = num1 * 7
-            # Print the result
-            print("Your age in dog years is:", result)
-        # Handle the case where the user interrupts the program (e.g., Ctrl+C)
-        except KeyboardInterrupt:
-            print("Exiting")
-            # Break out of the loop to exit the program
-            break
 
-# Call the dogyears function to execute the above logic
-dogyears()
-os.system('clear')
+def screenclear():
+    if os.name == 'posix':
+        os.system('clear')
+    if os.name == 'nt':
+        os.system('cls')
+
+def getnum():
+    screenclear()
+    age = int(input("What is your age"))
+    result = calculation(age)
+    print(result)
+
+
+def calculation(age):
+    return age * 7
+
+getnum()
 #comments made by AI
