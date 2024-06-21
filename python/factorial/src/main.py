@@ -1,5 +1,14 @@
+import os
+
+def screenclear():
+    if os.name == 'posix':
+        os.system('clear')
+    if os.name == 'nt':
+        os.system('cls')
+
 def userinput():
-    n = int(input("What number:  "))
+    screenclear()
+    n = int(input("What number: "))
     solution = factorinal(n)
     print(f"the factoral of {n} is: {solution}")
 def factorinal(n):
