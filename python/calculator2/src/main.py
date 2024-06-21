@@ -15,6 +15,9 @@ def get_numbers():
             num2 = float(num2.strip()) 
             
             return num1, num2
+        except KeyboardInterrupt:
+            print("Exiting")
+            break
         except ValueError:
             print("Invalid")
 
