@@ -8,13 +8,12 @@ def screenclear():
 
 def getnum():
     screenclear()
-    age = int(input("What is your age"))
+    age = int(input("What is your age: "))
     result = calculation(age)
-    print(result)
+    print(f"Your age in dog years is: {result}")
 
 
 def calculation(age):
     return age * 7
 
 getnum()
-#comments made by AI
