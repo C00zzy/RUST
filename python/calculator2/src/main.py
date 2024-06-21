@@ -54,6 +54,4 @@ def calculator():
         print(solution)
     elif operator == '-':
         solution = substract(num1, num2)
-    else:
-        print("invalid")
 calculator()
