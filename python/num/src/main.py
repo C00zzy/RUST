@@ -1,5 +1,13 @@
 import math
 import numpy as np
+import os
+
+def screenclear():
+    if os.name == 'posix':
+        os.system('clear')
+    elif os.name == 'nt':
+        os.system('cls')
+
 
 def distancebetween(x1, y1, x2, y2):
     return math.sqrt((x2 - x1)**2 + (y2 - y1) ** 2)
@@ -17,6 +25,7 @@ def distinput():
 
 
 def userexpr():
+    screenclear()
     distance = distinput()
     print("Distance between points is: ", distance)
 userexpr()
