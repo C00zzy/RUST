@@ -1,25 +1,12 @@
-#### PUSEDO CODE ####
-#  inputforcal func:
-#       input("Enter two number):
-#       Then store both as variable
-#       after return to outside of func
-#       exit
-#
-#   addition func:
-#       sum = number 1 + number 2
-#       exit
-##   multiply func:
- #      sum = number 1 * number 2
- #      exit
-#
-#
-#   logicforcal func:
-#       (inputforcal)
-#           input("What operator:   )
-#           then
-#### PUSEDO CODE ####
+import os 
 
-def numbers():
+def screenclear():
+    if os.name == 'posix':
+        os.system('clear')
+    elif os.name == 'nt':
+        os.system('cls')
+
+def get_numbers():
     while True:
         try:
             num1, num2, = input("Enter two number seperated by a comma:  ").split(',')
@@ -27,13 +14,46 @@ def numbers():
             num1 = float(num1.strip())
             num2 = float(num2.strip()) 
             
-            print("Numbers Selected and converted to floating! Numbers:  ",num1 ,num2)
             return num1, num2
         except ValueError:
             print("Invalid")
 
+def addition(num1, num2):
+    return num1 + num2
 
-def funcforcal(num1, num2):
-    sum = num1 + num2
+def multiplication(num1, num2):
+    return num1 * num2
 
-# TODO Add funcutions for addition, subtraction, divison
+def divde(num1, num2):
+    return num1 / num2
+
+def substract(num1, num2):
+    return num1 - num2
+    
+def userinput(num1, num2):
+    input = ("Enter an operator!:  ")
+    
+def get_opr():
+    while True:
+        opr = input("Enter operator:  ")
+        if opr in ['+', '*', '/', '-']:
+            return opr
+        else:
+            print("invalid")
+def calculator():
+    operator = get_opr()
+    num1, num2 = get_numbers()
+    if operator == '+':
+        solution = addition(num1, num2)
+        print(solution)
+    elif operator == '*':
+        solution = multiplication(num1, num2)
+        print(solution)
+    elif operator == '/':
+        solution = divde(num1, num2)
+        print(solution)
+    elif operator == '-':
+        solution = substract(num1, num2)
+    else:
+        print("invalid")
+calculator()
