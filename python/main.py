@@ -1,4 +1,2 @@
-def loop():
-    while True:
-        print("Hello World")
-loop()
+import os 
+os.system('ls')
