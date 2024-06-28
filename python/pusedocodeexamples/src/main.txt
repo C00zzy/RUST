@@ -1,0 +1,30 @@
+BubbleSort(array)
+  for i from 1 to length(array)
+    for j from 0 to length(array) - i - 1
+      if array[j] > array[j + 1]
+        swap(array[j], array[j + 1])
+
+QuickSort(array, low, high)
+  if low < high
+    pivot = Partition(array, low, high)
+    QuickSort(array, low, pivot - 1)
+    QuickSort(array, pivot + 1, high)
+
+LinearSearch(array, key)
+  for each element in array
+    if element == key
+      return index
+  return -1
+
+BinarySearch(array, key, low, high)
+  while low <= high
+    mid = (low + high) / 2
+    if array[mid] == key
+      return mid
+    else if array[mid] < key
+      low = mid + 1
+    else
+      high = mid - 1
+  return -1
+
+
