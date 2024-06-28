@@ -1,11 +1,10 @@
 # Fizz buzz
-
-for f in range(1, 101):
-    if f % 3 == 0 and f % 5 == 0:
-        print(f'{f}: FizzBuzz')
-    if f % 3 == 0:
-        print(f'{f}: Fizz')
-    if f % 5 == 0:
-        print(f'{f}: Buzz')
+for i in range(1, 100):
+    if i % 5 == 0 and i % 3 == 0:
+        print(f'{i}: Fizzbuzz')
+    elif i % 5 == 0:
+        print(f'{i}: Fizz')
+    elif i % 3 == 0:
+        print(f'{i} Buzz')
     else:
-        print(f'{f}: Nor fizz or buzz or fizzbuzz')
+        print(i)
