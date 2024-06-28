@@ -1,6 +1,6 @@
-numbers = [2]
-strings = [("fuckyou f")]
-names = ["John", "Eric", "Jessica"]
+numbers: list[int] = [2]
+strings: list[str] = [("fuckyou f")]
+names: list[str] = ["John", "Eric", "Jessica"]
 
 # write your code here
 second_name = ("Smith")
