@@ -1,16 +1,15 @@
-# Modules
+# modules
 import random
 import string
-from typing import Literal
-
-# Funcution
+import typing
+# funcution
 
 def randomletterandnums() -> None:
-    password: Literal[''] = ""
-    for _ in range(10):
-        randomnum: int = random.randrange(start=1, stop=30)
-        randomlet: str = random.choice(seq=string.ascii_letters)
-        password += str(object=randomnum) + randomlet
+    password = ""
+    for _ in range(10): # does this until it hits the quota
+        randomnum: int = random.randrange(start=1, stop=10) # Generates numbers
+        randomlet: str = random.choice(seq=string.ascii_letters) # Generates lettersj
+        password += str(object=randomnum) + randomlet # Adds them together
     print(password)
 
 randomletterandnums()

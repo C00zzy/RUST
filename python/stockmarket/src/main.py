@@ -16,8 +16,8 @@ def checkcandleinput(): # for input funcution
             print("Invalid")
 
 
-def check_candle():
-    candle = checkcandleinput()
+def check_candle() -> None:
+    candle: str = checkcandleinput()
     if candle == "1":
         print("INVEST") # Main Logic
     elif candle == "0":
