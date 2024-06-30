@@ -1,15 +1,15 @@
 import os
 # Stock market script concept
-def screenclear(): # This is a command line program
+def screenclear() -> None: # This is a command line program
     if os.name == 'posix':
         os.system('clear')
     elif os.name == 'nt':
         os.system('cls')
 
 
-def checkcandleinput(): # for input funcution
+def checkcandleinput() -> str: # for input funcution
     while True:
-        candle = input("Green for 1, Red for 0: ")
+        candle: str = input("Green for 1, Red for 0: ")
         if candle in ["0", "1"]: # Checks if the input is 1 or 0 and if so candle is assigned to that
             return candle # Returns to outside of funcution
         else:
