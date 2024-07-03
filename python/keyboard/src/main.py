@@ -1,6 +1,6 @@
 # Modules
 import sys
-import keyboard # Needs pip to install
+import keyboard # Needs pip and a virtual enviroment to install
 import time
 import os
 def rootstatus():
@@ -8,7 +8,7 @@ def rootstatus():
 
 def shortcut(key): # Main Funcution
     while True:
-        keyboard.press(key)
+        keyboard.press(key)#
         time.sleep(0.1)
         keyboard.release(key)
 
