@@ -1,2 +1,6 @@
-for i in range(1, 100000000000000000000000000000):
-    print(i)
+import keyboard
+import time
+while True:
+    keyboard.press('t')
+    time.sleep(0.1)
+    keyboard.release('t')
