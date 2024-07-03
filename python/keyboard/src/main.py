@@ -1,10 +1,10 @@
 # Modules
 import sys
-import keyboard
+import keyboard # Needs pip to install
 import time
 import os
 def rootstatus():
-    return os.getuid() == 0 # This checks if user is root typically UID 0
+    return os.getuid() == 0 # This checks if user is root: Typically 0 on Linux systems 
 
 def shortcut(key): # Main Funcution
     while True:
