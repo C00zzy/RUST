@@ -6,5 +6,5 @@ int main ()
      int num;
     printf("Enter your input\n");
     scanf ("%d", &num);
-    printf("%d");
+    printf("%d\n");
 }
