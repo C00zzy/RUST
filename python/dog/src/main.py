@@ -17,3 +17,4 @@ def calculation(age):
     return age * 7
 
 getnum()
+
