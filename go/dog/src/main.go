@@ -2,12 +2,21 @@ package main
 
 import "fmt"
 
-func main() {
-	var age int
-	var result int
-	fmt.Printf("What is your age: ")
-	fmt.Scanf("%d", &age)
-	result = age * 7
-	fmt.Println(result)
+func calculateage() int {
+	var age int = 10
+	return age
+}
 
+func caldogyears(age int) int {
+	var dogyears int = age * 7
+	return dogyears
+}
+
+func main() {
+	age := calculateage()
+
+	dogyears := caldogyears(age)
+
+	fmt.Println(age)
+	fmt.Println(dogyears)
 }
