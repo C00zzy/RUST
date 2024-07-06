@@ -2,14 +2,12 @@ package main
 
 import "fmt"
 
+func poundstokilos(pounds float64) float64 {
+	return pounds * 0.453592
+}
+
 func main() {
-	var weight float64
-	var result float64
-	fmt.Printf("What is your weight in pounds ")
-	fmt.Scanf("%f", &weight)
-	result = weight / 2.20462
-	fmt.Printf("%.2f\n", result)
-	if weight == 0 {
-		fmt.Println("ERROR")
-	}
+	pounds := 180.0
+	kilograms := poundstokilos(pounds)
+	fmt.Printf("%.2f pounds is equal to %.2f kilograms\n", pounds, kilograms)
 }

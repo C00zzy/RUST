@@ -1,0 +1,9 @@
+Pure Functions: The concept of pure functions, which have no side effects and return the same result for the same inputs, is applicable in any language. Writing functions that do not modify global state helps improve predictability and testability.
+
+Immutability: While some languages may not enforce immutability as strictly as functional languages do, adopting immutable data structures and minimizing mutable state can lead to more reliable and thread-safe code.
+
+First-Class Functions: Many modern languages, including JavaScript, Python, and Java (from version 8 onwards with lambda expressions), treat functions as first-class citizens. This allows functions to be assigned to variables, passed as arguments, and returned from other functions, enabling higher-order functions and functional programming techniques.
+
+Higher-Order Functions: Languages like JavaScript, Python, and even C++ (with lambda expressions and higher-order functions in the standard library) support higher-order functions. These functions can accept other functions as arguments or return functions as results, facilitating functional-style programming.
+
+Declarative Style: While imperative programming dominates many languages, there is growing support for declarative constructs. SQL, for instance, is declarative, specifying what data to retrieve without specifying how to retrieve it. Many modern languages also offer declarative constructs for data manipulation, such as list comprehensions in Python or LINQ in C#.
