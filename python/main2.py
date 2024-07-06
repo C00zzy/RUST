@@ -1,4 +1,10 @@
-def hello_world():
-    return ("Hello, World")
-# Funcutional programming because it doesn't modify anything thus meaning no side affects and it treats funcutions as first class
-print(hello_world())
+import random
+
+def printforvalue(value):
+    print(value)
+
+def forloop(start, end, func,):
+    for i in range(start, end + 1):
+        func(i)
+
+forloop(1, 200, printforvalue)
