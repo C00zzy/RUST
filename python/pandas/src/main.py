@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd # type: ignore
 import os
 def screenclear():
     if os.name == 'posix':
@@ -13,11 +13,11 @@ data = {
 }
 df = pd.DataFrame(data=data)
 
-old: pd.DataFrame = df[df['Age'] > 40]
-young: pd.DataFrame = df[df['Age'] < 40]
+old: pd.DataFrame = df[df['Age'] > 40] # type: ignore
+young: pd.DataFrame = df[df['Age'] < 40] # type: ignore
 screenclear()
 sort: str = input("How do you want sorted: ")
-if sort == 'old':
+if sort == 'old' and sort == 'age':
     print(old)
 elif sort == 'young':
     print(young)
