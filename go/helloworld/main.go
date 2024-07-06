@@ -9,3 +9,5 @@ func greeting() string {
 func main() {
 	fmt.Println(greeting())
 }
+
+// Funcutional programming only
