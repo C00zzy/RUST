@@ -1,95 +1,152 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <netinet/ip_icmp.h>
-#include <netinet/in.h>
-#include <sys/types.h>
-#include <time.h>
+#include <math.h>
 
-#define PING_PKG_S 64
-#define PING_SLEEP_RATE 100000
+// Define the structure to hold variables used in calculations
+struct variables {
+  long result;       // To store the result of operations (though not used in current code)
+  int num1;          // First integer input for arithmetic operations
+  int num2;          // Second integer input for arithmetic operations
+  int sum;           // To store the result of addition, subtraction, multiplication
+  long opr;          // To store the operation selected by the user (note: should be char for operations)
+  double S;          // Input number for square root calculation
+  double tolerance;  // Tolerance for square root approximation
+  int range;         // Range for printing even and odd numbers
+};
 
-unsigned short checksum(void *b, int len) {
-	unsigned short *buf = b;
-	unsigned int sum = 0;
-	unsigned short result;
+// Function prototypes
+void HELPfunc(void);            // Displays help information
+void subtraction(struct variables v); // Performs subtraction
+void multiplication(struct variables v); // Performs multiplication
+void addition(struct variables v); // Performs addition
+void dividson(struct variables v); // Performs division
+double sqrtroot(struct variables v); // Computes the square root
 
-	while (len > 1) {
-		sum += *buf++;
-		len -= 2;
-	}
-
-	if (len == 1) {
-		sum += *(unsigned char *)buf;
-	}
-
-	sum = (sum >> 16) + (sum & 0xFFFFF);
-	sum += (sum >> 16);
-	result = ~sum;
-	return result;
+// Displays help information about available operators
+void HELPfunc(void) {
+  printf("Operators:\n");
+  printf("+ for addition\n");
+  printf("- for subtraction\n");
+  printf("* for multiplication\n");
+  printf("/ for division\n");
+  printf("s for square roots\n");
+  printf("d To print even and odd numbers\n");
 }
 
-void send_ping (int sockfd, struct sockaddr_in *addr, const char *ip_addr) {
-	struct icmphdr icmp_hdr;
-	struct sockaddr_in raddr;
-	char packet[PING_PKG_S];
-	memset(&icmp_hdr, 0, sizeof(icmp_hdr));
-	memset(packet, 0, sizeof(packet));
-
-	icmp_hdr.type = ICMP_ECHO;
-	icmp_hdr.un.echo.id = getpid();
-	icmp_hdr.un.echo.sequence = 1;
-	icmp_hdr.checksum = checksum(&icmp_hdr, sizeof(icmp_hdr));
-
-	memcpy(packet, &icmp_hdr, sizeof(icmp_hdr));
-
-	if (sendto(sockfd, packet, sizeof(icmp_hdr), 0, (struct sockaddr *) addr, sizeof(*addr)) <= 0) {
-		perror("sendto");
-	} else {
-		printf("Ping sent to %s\n", ip_addr);
-	}
+// Performs subtraction and prints the result
+void subtraction(struct variables v) {
+  v.sum = v.num1 - v.num2;
+  printf("Difference: %d\n", v.sum);
 }
 
-void receive_ping(int sockfd) {
-	char buffer[1024];
-	struct sockaddr_in addr;
-	socklen_t len = sizeof(addr);
-
-	if (recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr *)&addr, &len) > 0) {
-		printf("Ping recieved from address\n");
-	} else {
-		perror("recvfrom");
-	}
+// Performs multiplication and prints the result
+void multiplication(struct variables v) {
+  v.sum = v.num1 * v.num2;
+  printf("Product: %d\n", v.sum);
 }
 
-int main(int argc, char *argv[]) {
-	if (argc != 2) {
-		fprintf(stderr, "Usage: %s <IP Address>\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-
-	const char *ip_addr = argv[1];
-	int sockfd;
-	struct sockaddr_in addr;
-
-	if ((sockfd=socket(AF_INET, SOCK_RAW, IPPROTO_ICMP)) < 0) {
-		perror("socket");
-		exit(EXIT_FAILURE);
-	}
-
-	memset(&addr, 0, sizeof(addr));
-	addr.sin_family = AF_INET;
-	addr.sin_addr.s_addr = inet_addr(ip_addr);
-
-	while (1) {
-		send_ping(sockfd, &addr, ip_addr);
-		receive_ping(sockfd);
-		usleep(PING_SLEEP_RATE);
-	}
-
-	close(sockfd);
-	return 0;
+// Performs division and prints the result
+void dividson(struct variables v) {
+  if (v.num2 == 0) { // Check for division by zero
+    printf("CANNOT DIVIDE BY 0!\n");
+  } else {
+    v.sum = v.num1 / v.num2; // Perform division (fix: should be integer division)
+    printf("Quotient: %d\n", v.sum);
+  }
 }
+
+// Computes the square root using the Newton-Raphson method
+double sqrtroot(struct variables v) {
+  if (v.S < 0) { // Check for negative input
+    printf("ERROR: Negative input for square root!\n");
+    return -1; // Return error code
+  }
+  double num1 = v.S;
+  double num1_next;
+
+  // Iteratively improve the estimate of the square root
+  do {
+    num1_next = 0.5 * (num1 + v.S / num1);
+    printf("Current estimate: %.10f, Next estimate: %.10f\n", num1, num1_next);
+    if (fabs(num1_next - num1) < v.tolerance) {
+      break; // Exit loop if the result is within the tolerance
+    }
+    num1 = num1_next;
+  } while (1);
+
+  return num1_next; // Return the calculated square root
+}
+
+// Performs addition and prints the result
+void addition(struct variables v) {
+  v.sum = v.num1 + v.num2;
+  printf("Sum: %d\n", v.sum);
+}
+
+int main(void) {
+  struct variables v;
+  v.tolerance = 1e-6; // Set the tolerance for square root calculation
+  char input[10];
+  
+  while (1) { // Infinite loop to continuously prompt user
+    printf("Welcome! press h or H for help!\n");
+    scanf(" %c", &v.opr); // Read user input for operation
+
+    // Handle the 'd' operation to print even and odd numbers
+    if (v.opr == 'd') {
+      printf("What range?\n");
+      scanf("%d", &v.range); // Read the range from the user
+      for (int i = 0; i < v.range + 1; i++) { // Print numbers from 0 to range
+        if (i % 2 == 0) {
+          printf("%d: odd\n", i); // 'odd' for even index (but this seems like a logic error)
+        } else {
+          printf("%d: even\n", i); // 'even' for odd index (but this seems like a logic error)
+        }
+      }
+      continue; // Skip the rest of the loop and prompt the user again
+    }
+
+    // Handle the 's' operation for square root calculation
+    if (v.opr == 's') {
+      printf("What number for square root?\n");
+      scanf("%lf", &v.S); // Read the number for square root calculation
+      double result = sqrtroot(v);
+      if (result >= 0) {
+        printf("The square root of %.2f is %.6f\n", v.S, result);
+      } else {
+        printf("ERROR\n");
+      }
+      break; // Exit the loop after calculating square root
+    }
+
+    // Handle the 'h' operation to display help
+    if (v.opr == 'h') {
+      HELPfunc();
+      continue; // Skip the rest of the loop and prompt the user again
+    }
+
+    // Prompt the user for two integers for arithmetic operations
+    printf("Enter two integers! \n");
+    scanf("%d %d", &v.num1, &v.num2);
+
+    // Perform the selected arithmetic operation
+    switch (v.opr) {
+      case '+':
+        addition(v);
+        break;
+      case '-':
+        subtraction(v);
+        break;
+      case '/':
+        dividson(v);
+        break;
+      case '*':
+        multiplication(v);
+        break;
+      default:
+        printf("Invalid operation!\n");
+        break;
+    }
+  }
+  return 0;
+}
+// comments added by AI.
