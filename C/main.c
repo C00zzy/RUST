@@ -3,7 +3,6 @@
 
 // Define the structure to hold variables used in calculations
 struct variables {
-  long result;       // To store the result of operations (though not used in current code)
   int num1;          // First integer input for arithmetic operations
   int num2;          // Second integer input for arithmetic operations
   int sum;           // To store the result of addition, subtraction, multiplication
