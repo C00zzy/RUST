@@ -13,7 +13,7 @@
 // Function that threads will run. This function does nothing and loops indefinitely.
 void* nothing(void* arg) {
     while (1) {
-        // Busy-wait loop. This thread does nothing but will consume CPU time.
+        
     }
     return NULL;  // This line is unreachable due to the infinite loop.
 }
