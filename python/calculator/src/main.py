@@ -31,5 +31,6 @@ def logicforcal(): # Define a function for calculator logic
         except KeyboardInterrupt:
             print("Stopped...")
             break
+# This sucks, REALLY Sucks WHY did i write this shit
 
 logicforcal() # start the motherfucker
