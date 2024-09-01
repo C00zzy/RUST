@@ -55,10 +55,13 @@ while True:
     option = input(Main_Menu())
     if option == '1':
         print(Generate_IP())
+        break
     elif option == '2':
         print(Generate_MAC())
+        break
     elif option == '3':
         Grab_DNS()
+        break
     elif option.lower() == 'exit':
         print("Exiting")
         break
