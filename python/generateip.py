@@ -37,5 +37,3 @@ print("                                                           ")
 print("DNS Servers if you need them! I would recommend cloudflare or openDNS")
 for Provider, Address in DNS_Servers.items():
     print(f'{Provider}: {Address}')
-
-
