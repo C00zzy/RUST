@@ -1,5 +1,10 @@
 import random
-### DICTORINARIES
+# Comments added by AI; overall structure done by me.
+# I'm not a genius programmer, so implementation ideas were developed using Google and AI.
+# To be honest, using Google and AI is essentially the same, and most people will use AI to figure shit out.
+# It reminds me of when I was learning Linux; I always used Google.
+# The same principle applies here.
+# I should use multiline comments here, but I won't because fuck you.
 DNS_Servers = {
     'Cloudflare Primary': '1.1.1.1',
     'Cloudflare Secondary': '1.0.0.1',
@@ -9,31 +14,48 @@ DNS_Servers = {
     'OpenDNS Secondary': '208.67.220.220',
 }
 
-RED = '\033[91m'
-GREEN = '\033[92m'
-YELLOW = '\033[93m'
-RESET = '\033[0m'
+### FUNCTIONS
+def Grab_DNS():
+    """Prints the list of DNS servers."""
+    for server, address in DNS_Servers.items():
+        print(f'{server}: {address}')
 
-### FUNCUTIONS
-def Generate_Mac():
-    mac_Adress = ':'.join(f'{random.randint(0, 255):02X}' for _ in range(6))
-    return mac_Adress
-
-def Random_Ip(): ### Generates New IP address using the 192.168.1 formatting scheme that's normal for most routers.
-    starting_Octets = [192, 168, 1,]
-    final_Octet = random.randint(1, 255)
-    octets = starting_Octets + [final_Octet]
+def Generate_IP():
+    """Generates a new IP address using the 192.168.1.x format."""
+    starting_octets = [192, 168, 1]
+    final_octet = random.randint(1, 255)
+    octets = starting_octets + [final_octet]
     ip_address = '.'.join(map(str, octets))
     return ip_address
 
-### FUNCUTIONS
+def Generate_MAC():
+    """Generates a random MAC address."""
+    mac_address = ':'.join(f'{random.randint(0, 255):02X}' for _ in range(6))
+    return mac_address
 
+def Main_Menu():
+    """Returns the menu prompt string."""
+    return (
+        "Welcome!\n"
+        "Press 1 for a random IP Address\n"
+        "Press 2 for a random MAC Address\n"
+        "Press 3 for a list of DNS servers\n"
+        "Type 'exit' to exit.\n"
+        "Choose an option: "
+    )
 
-print("################# IP ADDRESS! AND MAC ####################")
-print(f"{YELLOW}New IP Address: {Random_Ip()}{RESET}")
-print(f"{YELLOW}New MAC Address: {Generate_Mac()}{RESET}")
-print("################# IP ADDRESS! AND MAC ####################")
-print("                                                           ")
-print("DNS Servers if you need them! I would recommend cloudflare or openDNS")
-for Provider, Address in DNS_Servers.items():
-    print(f'{Provider}: {Address}')
+### MAIN PROGRAM
+
+while True:
+    option = input(Main_Menu())
+    if option == '1':
+        print(Generate_IP())
+    elif option == '2':
+        print(Generate_MAC())
+    elif option == '3':
+        Grab_DNS()
+    elif option.lower() == 'exit':
+        print("Exiting")
+        break
+    else:
+        print("Invalid option, please try again.")
