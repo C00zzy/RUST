@@ -5,6 +5,11 @@ import random
 # It reminds me of when I was learning Linux; I always used Google.
 # The same principle applies here.
 # I should use multiline comments here, but I won't because fuck you.
+# And people who dog on other programmers for using google, AI, Dude i just want to code for fun
+# and not bash my fucking head against my desk trying to figure shit out man thats not fun
+# For production i mean those programmers are college trained or been coding since they were a sperm cell 
+# Plus if you know what the code does, Is it really bad? to me its only bad if you don't know what the code actually does
+# And i've been programming on and off for only like a year.
 DNS_Servers = {
     'Cloudflare Primary': '1.1.1.1',
     'Cloudflare Secondary': '1.0.0.1',
