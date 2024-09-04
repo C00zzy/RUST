@@ -8,7 +8,6 @@ DNS_Servers = {
     'OpenDNS Secondary': '208.67.220.220',
 }
 
-### FUNCTIONS
 def Grab_DNS():
     """Prints the list of DNS servers."""
     for server, address in DNS_Servers.items():
