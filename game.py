@@ -41,7 +41,7 @@ def game():
             print("\nSorry, you lost! The correct answer was:", answer)
             break
         
-        # Score penalty check
+        # Prevent crashes
         if score <= max_loss_score:
             print("\n💥 Your score dropped too low! Resetting score to 0.")
             score = 0
